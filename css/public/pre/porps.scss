@@ -1,0 +1,51 @@
+body.porps{
+
+
+	.contenedor-full{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		
+
+	}
+	
+	/*==============================
+	=            titulo            =
+	==============================*/
+	
+	.content-title{
+		position: relative;
+		width: 100%;
+		height: 10%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: #0ff;
+
+		.title{
+			@include txt(h1, uppercase);
+			color:red;
+		}
+	}
+
+
+	/*============================
+	=            body            =
+	============================*/
+	
+	.section-full{
+		position: relative;
+		width: 100%;
+		height: 90%;
+		
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+	}	
+	
+
+
+}

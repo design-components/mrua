@@ -1,0 +1,121 @@
+%table{
+	font-size: 20px;
+	border:1px solid;
+	border-collapse: collapse;
+	margin: 20px;	
+	th,td{
+		padding: 20px;	
+
+	}
+	td{
+		border-bottom: 	1px solid ;
+	}
+}
+
+// type = primary/default, column 
+// color =  blue, ligthblue, red,yellow, dark
+@mixin table($color:default){
+	$defecto:#007BDF;
+	$ligthblue:#00CBFF;
+	$blue:#007BDF;
+	$red:#ff3c32;
+	$yellow:#fba905;
+	@extend %table;
+			text-align: center;
+			border-color:$defecto;
+			td:first-child{
+				text-transform: capitalize;
+			}
+		th{
+			background-color: $defecto;
+		}
+		td{
+			border-bottom-color: $defecto;
+			&:nth-child(2n){
+				background: hsla(100,2%,88%,.2);
+			}
+		
+		}
+		tr{
+			&:hover{
+				background: lighten($defecto,50);
+			}
+		}
+	
+
+	@if $color == red{
+			border-color:$red;
+		th{
+			background: $red;
+		}
+		td{
+			border-bottom-color: $red;
+			&:nth-child(2n){
+				background: hsla(100,2%,88%,.2);
+			}
+		}
+		tr{
+			&:hover{
+				background: lighten($red,35);
+				
+			}
+		}
+	}
+
+	@if $color == blue{
+			border-color:$blue;
+		th{
+			background: $blue;
+		}
+		td{
+			border-bottom-color: $blue;
+			&:nth-child(2n){
+				background: hsla(100,2%,88%,.2);
+			}
+		}
+		tr{
+			&:hover{
+				background: lighten($blue,50);
+				
+			}
+		}
+	}
+	@if $color == ligthblue {
+			border-color:$ligthblue;
+		th{
+			background: $ligthblue;
+		}
+		td{
+			border-color: $ligthblue;
+			&:nth-child(2n){
+				background: hsla(100,2%,88%,.2);
+			}
+		}
+		tr{
+			&:hover{
+				background: lighten($ligthblue,40);
+				
+			}
+		}
+	}
+	@if $color == yellow {
+		border-color:$yellow;
+		th{
+			background: $yellow;
+		}
+		td{
+			border-color: $yellow;
+			&:nth-child(2n){
+				background: hsla(100,2%,88%,.2);
+			}
+		}
+		tr{
+			&:hover{
+				background: lighten($yellow,50);
+				
+			}
+		}
+	}
+
+
+}
