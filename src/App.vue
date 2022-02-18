@@ -1,26 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container pt-5">
+    <div class="card">
+      <div class="card-header  bg-primary text-white">
+        Movimiento Rectilíneo Uniformemente Acelerado
+      </div>
+      <div class="card-body">
+        <mrua/>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Mrua from './components/Mrua'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Mrua
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
