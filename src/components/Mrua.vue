@@ -13,156 +13,57 @@
     <div class="tab-pane fade show active" id="nav-vf">
       <div class="row">
         <div class="col-12 col-md-4">
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="vi" placeholder="100" v-model="givens.vi">
-              <label for="vi">Velocidad Inicial</label>
-            </div>
-            <span class="input-group-text"> M/S </span>
-          </div>
-
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="a" placeholder="100" v-model="givens.a">
-              <label for="a">Aceleración</label>
-            </div>
-            <span class="input-group-text">M/S<sup>2</sup></span>
-          </div>
-
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="t" placeholder="100" v-model="givens.t">
-              <label for="t">Tiempo</label>
-            </div>
-            <span class="input-group-text">Seg</span>
-          </div>
+          <div class="mb-3"> <input-group :data="{id: 'vi', text: 'Velocidad Inicial'}" :select="{ option: 'speed', default: 'm/s' }"/></div>
+          <div class="mb-3"> <input-group :data="{id: 'a', text: 'Aceleración'}" :select="{ option: 'acceleration', default: 'm/s2'}"/></div>
+          <div class="mb-3"> <input-group :data="{id: 't', text: 'Tiempo'}" :select="{ option: 'time', default: 'seg' }" /></div>
         </div>
         <div class="col-12 col-md-4">
-          <span>Resultado</span>
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="vf" placeholder="100" :value="result" disabled>
-              <label for="vf">Velocidad Final</label>
-            </div>
-            <span class="input-group-text">M/S</span>
-          </div>
+          <div class="mb-3"> <input-group :data="{id: 'r', text: 'Velocidad Final'}" :select="{ option: 'speed', default: 'm/s' }" /></div>
         </div>
       </div>
-
     </div>
     <div class="tab-pane fade" id="nav-d">
       <div class="row">
         <div class="col-12 col-lg-4">
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="vi" placeholder="100" v-model="givens.vi">
-              <label for="vi">Velocidad Inicial</label>
-            </div>
-            <span class="input-group-text"> M/S </span>
-          </div>
-
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="a" placeholder="100" v-model="givens.a">
-              <label for="a">Aceleración</label>
-            </div>
-            <span class="input-group-text">M/S<sup>2</sup></span>
-          </div>
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="t" placeholder="100" v-model="givens.t">
-              <label for="t">Tiempo</label>
-            </div>
-            <span class="input-group-text">Seg</span>
-          </div>
+          <div class="mb-3"> <input-group :data="{id: 'vi', text: 'Velocidad Inicial'}" :select="{ option: 'speed', default: 'm/s' }"/></div>
+          <div class="mb-3"> <input-group :data="{id: 'a', text: 'Aceleración'}" :select="{ option: 'acceleration', default: 'm/s2' }"/></div>
+          <div class="mb-3"> <input-group :data="{id: 't', text: 'Tiempo'}" :select="{ option: 'time', default: 'seg' }" /></div>
         </div>
         <div class="col-12 col-lg-4">
-          <span>Resultado</span>
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="d" placeholder="100" :value="result" disabled>
-              <label for="d">Distancia</label>
-            </div>
-            <span class="input-group-text">mts</span>
-          </div>
+          <div class="mb-3"> <input-group :data="{id: 'r', text: 'Distancia'}" :select="{ option: 'distance', default: 'mt' }" /></div>
+        </div>
+        <div class="col-12 col-lg-4">
+          ( a * (t*t)  ) / 2 + (vi * t)
         </div>
       </div>
     </div>
     <div class="tab-pane fade" id="nav-a">
       <div class="row">
         <div class="col-12 col-lg-4">
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="vi" placeholder="100" v-model="givens.vi">
-              <label for="vi">Velocidad Inicial</label>
-            </div>
-            <span class="input-group-text"> M/S </span>
-          </div>
-
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="vf" placeholder="100" v-model="givens.vf">
-              <label for="vf">Velocidad Final</label>
-            </div>
-            <span class="input-group-text">M/S</span>
-          </div>
-
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="t" placeholder="100" v-model="givens.t">
-              <label for="t">Tiempo</label>
-            </div>
-            <span class="input-group-text">Seg</span>
-          </div>
+          <div class="mb-3"> <input-group :data="{id: 'vi', text: 'Velocidad Inicial'}" :select="{ option: 'speed', default: 'm/s' }"/></div>
+          <div class="mb-3"> <input-group :data="{id: 'vf', text: 'Velocidad Final'}" :select="{ option: 'speed', default: 'm/s' }"/></div>
+          <div class="mb-3"> <input-group :data="{id: 't', text: 'Tiempo'}" :select="{ option: 'time', default: 'seg' }" /></div>
         </div>
         <div class="col-12 col-lg-4">
-          <span>Resultado</span>
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="a" placeholder="100" :value="result" disabled>
-              <label for="a">Aceleración</label>
-            </div>
-            <span class="input-group-text">M/S<sup>2</sup></span>
-          </div>
+          <div class="mb-3"> <input-group :data="{id: 'r', text: 'Aceleración'}" :select="{ option: 'acceleration', default: 'm/s2' }" /></div>
+        </div>
+        <div class="col-12 col-lg-4">
+          (vf - vi) / t
         </div>
       </div>
     </div>
     <div class="tab-pane fade" id="nav-t">
       <div class="row">
         <div class="col-12 col-lg-4">
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="vi" placeholder="100" v-model="givens.vi">
-              <label for="vi">Velocidad Inicial</label>
-            </div>
-            <span class="input-group-text"> M/S </span>
-          </div>
-
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="vf" placeholder="100" v-model="givens.vf">
-              <label for="vf">Velocidad Final</label>
-            </div>
-            <span class="input-group-text">M/S</span>
-          </div>
-
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="a" placeholder="100" v-model="givens.a">
-              <label for="a">Aceleración</label>
-            </div>
-            <span class="input-group-text">M/S<sup>2</sup></span>
-          </div>
+          <div class="mb-3"> <input-group :data="{id: 'vi', text: 'Velocidad Inicial'}" :select="{ option: 'speed', default: 'm/s' }"/></div>
+          <div class="mb-3"> <input-group :data="{id: 'vf', text: 'Velocidad Final'}" :select="{ option: 'speed', default: 'm/s' }"/></div>
+          <div class="mb-3"> <input-group :data="{id: 'a', text: 'Aceleración'}" :select="{ option: 'acceleration', default: 'm/s2' }"/></div>
         </div>
         <div class="col-12 col-lg-4">
-          <span>Resultado</span>
-          <div class="input-group">
-            <div class="form-floating">
-              <input type="number" class="form-control" id="t" placeholder="100" :value="result" disabled>
-              <label for="t">{{ result }}</label>
-            </div>
-            <span class="input-group-text">Seg</span>
-          </div>
+          <div class="mb-3"> <input-group :data="{id: 'r', text: 'Tiempo'}" :select="{ option: 'time', default: 'seg' }" /></div>
+        </div>
+        <div class="col-12 col-lg-4">
+          (vf - vi) / a
         </div>
       </div>
     </div>
@@ -170,32 +71,28 @@
 </template>
 
 <script>
+  import functions from '../helpers/functions'
+  import SelectComponent from './includes/select'
+  import inputGroup from './includes/input-group'
 export default {
+  components: {SelectComponent, inputGroup},
   data(){
     return {
       givens: {
-        vf: null,
-        vi: null,
-        d: null,
-        a: null, 
-        t: null,
+        vf: '',
+        vi: '',
+        d: '',
+        a: '', 
+        t: '',
       },
-      result: null,
+      result: '',
       type: 'vf',
     }
   },
-  mounted(){
-    document.querySelectorAll('input[type="number"]').forEach((input) => {
-      input.addEventListener('keyup', (e) => {
-        this.calculate()
-      })
-    })
-    
-  },
-  methods:{
+  methods:{ 
     changeCalcule(type){
       this.type = type
-      this.result = null
+      this.calculate()
     },
     calculate(){
       let type = this.type
@@ -225,5 +122,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+  .form-select{
+    background-image: none;
+    padding: 0;
+  }
 </style>
