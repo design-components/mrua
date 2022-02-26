@@ -99,14 +99,6 @@ function selectsParameters(type){
                     description: 'Metros x segundo'
                 },
                 {
-                    abbreviation: 'm/h',
-                    description: 'Metros x hora'
-                },
-                {
-                    abbreviation: 'km/s',
-                    description: 'kilometros x segundo'
-                },
-                {
                     abbreviation: 'km/h',
                     description: 'kilometro x hora'
                 },
@@ -114,10 +106,38 @@ function selectsParameters(type){
     }
 }
 
-function conversions(data = null, type = null){
-    console.log(data,type)
+
+function conversions(type, number, conversion, oldConversion ){
+    if (typeof number != 'number') return 
+    switch(type){
+        case 'speed':
+            return setConversionSpeed(number, conversion, oldConversion)
+        case 'distance':
+            console.log('converson distance')
+            break
+        case 'acceleration':
+            console.log('converson acceleration')
+            break
+        case 'time':
+            console.log('converson time')
+            break
+    }
 }
 
+// conversiones 
+
+function setConversionSpeed(number, conversion, oldConversion){
+    /* 
+        - m/s a km/h =>     ( number / 5 ) * 18         = ( 15m/s  / 5 ) * 18 = 54km/h
+        - km/h a m/s =>     ( number / 18 ) * 5         = ( 54km/h / 18 ) * 5 = 15m/s
+    */
+    switch(oldConversion){
+        case 'm/s': if(conversion == 'km/h') return ( number / 5 ) * 18;  break
+        case 'km/h': if(conversion == 'm/s') return ( number / 18 ) * 5;  break
+        default:
+            return false
+    }
+}
 
 
 export default {conversions, selectsParameters}

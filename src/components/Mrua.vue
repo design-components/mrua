@@ -13,24 +13,24 @@
     <div class="tab-pane fade show active" id="nav-vf">
       <div class="row">
         <div class="col-12 col-md-4">
-          <div class="mb-3"> <input-group :data="{id: 'vi', text: 'Velocidad Inicial'}" :select="{ option: 'speed', default: 'm/s' }"/></div>
-          <div class="mb-3"> <input-group :data="{id: 'a', text: 'Aceleración'}" :select="{ option: 'acceleration', default: 'm/s2'}"/></div>
-          <div class="mb-3"> <input-group :data="{id: 't', text: 'Tiempo'}" :select="{ option: 'time', default: 'seg' }" /></div>
+          <div class="mb-3"> <input-group :data="{id: 'vi', number: givens.vi, text: 'Velocidad Inicial'}" :select="selects.speed"/></div>
+          <div class="mb-3"> <input-group :data="{id: 'a',  number: givens.a, text: 'Aceleración'}" :select="selects.acceleration"/></div>
+          <div class="mb-3"> <input-group :data="{id: 't',  number: givens.t, text: 'Tiempo'}" :select="selects.time" /></div>
         </div>
         <div class="col-12 col-md-4">
-          <div class="mb-3"> <input-group :data="{id: 'r', text: 'Velocidad Final'}" :select="{ option: 'speed', default: 'm/s' }" /></div>
+          <div class="mb-3"> <input-group :data="{id: 'r', number: result, r: true, text: 'Velocidad Final'} " :select="selects.speed" /></div>
         </div>
       </div>
     </div>
     <div class="tab-pane fade" id="nav-d">
       <div class="row">
         <div class="col-12 col-lg-4">
-          <div class="mb-3"> <input-group :data="{id: 'vi', text: 'Velocidad Inicial'}" :select="{ option: 'speed', default: 'm/s' }"/></div>
-          <div class="mb-3"> <input-group :data="{id: 'a', text: 'Aceleración'}" :select="{ option: 'acceleration', default: 'm/s2' }"/></div>
-          <div class="mb-3"> <input-group :data="{id: 't', text: 'Tiempo'}" :select="{ option: 'time', default: 'seg' }" /></div>
+          <div class="mb-3"> <input-group :data="{id: 'vi', number: givens.vi, text: 'Velocidad Inicial'}" :select="selects.speed"/></div>
+          <div class="mb-3"> <input-group :data="{id: 'a',  number: givens.a, text: 'Aceleración'}" :select="selects.acceleration"/></div>
+          <div class="mb-3"> <input-group :data="{id: 't',  number: givens.t, text: 'Tiempo'}" :select="selects.time" /></div>
         </div>
         <div class="col-12 col-lg-4">
-          <div class="mb-3"> <input-group :data="{id: 'r', text: 'Distancia'}" :select="{ option: 'distance', default: 'mt' }" /></div>
+          <div class="mb-3"> <input-group :data="{id: 'r',  number: result , text: 'Distancia'}" :select="selects.distance" /></div>
         </div>
         <div class="col-12 col-lg-4">
           ( a * (t*t)  ) / 2 + (vi * t)
@@ -40,12 +40,12 @@
     <div class="tab-pane fade" id="nav-a">
       <div class="row">
         <div class="col-12 col-lg-4">
-          <div class="mb-3"> <input-group :data="{id: 'vi', text: 'Velocidad Inicial'}" :select="{ option: 'speed', default: 'm/s' }"/></div>
-          <div class="mb-3"> <input-group :data="{id: 'vf', text: 'Velocidad Final'}" :select="{ option: 'speed', default: 'm/s' }"/></div>
-          <div class="mb-3"> <input-group :data="{id: 't', text: 'Tiempo'}" :select="{ option: 'time', default: 'seg' }" /></div>
+          <div class="mb-3"> <input-group :data="{id: 'vi', number: givens.vi, text: 'Velocidad Inicial'}" :select="selects.speed"/></div>
+          <div class="mb-3"> <input-group :data="{id: 'vf', number: givens.vf, text: 'Velocidad Final'}" :select="selects.speed"/></div>
+          <div class="mb-3"> <input-group :data="{id: 't',  number: givens.t, text: 'Tiempo'}" :select="selects.time" /></div>
         </div>
         <div class="col-12 col-lg-4">
-          <div class="mb-3"> <input-group :data="{id: 'r', text: 'Aceleración'}" :select="{ option: 'acceleration', default: 'm/s2' }" /></div>
+          <div class="mb-3"> <input-group :data="{id: 'r', number: result, r: true, text: 'Aceleración'}" :select="selects.acceleration" /></div>
         </div>
         <div class="col-12 col-lg-4">
           (vf - vi) / t
@@ -55,12 +55,12 @@
     <div class="tab-pane fade" id="nav-t">
       <div class="row">
         <div class="col-12 col-lg-4">
-          <div class="mb-3"> <input-group :data="{id: 'vi', text: 'Velocidad Inicial'}" :select="{ option: 'speed', default: 'm/s' }"/></div>
-          <div class="mb-3"> <input-group :data="{id: 'vf', text: 'Velocidad Final'}" :select="{ option: 'speed', default: 'm/s' }"/></div>
-          <div class="mb-3"> <input-group :data="{id: 'a', text: 'Aceleración'}" :select="{ option: 'acceleration', default: 'm/s2' }"/></div>
+          <div class="mb-3"> <input-group :data="{id: 'vi', number: givens.vi, text: 'Velocidad Inicial'}" :select="selects.speed"/></div>
+          <div class="mb-3"> <input-group :data="{id: 'vf', number: givens.vf, text: 'Velocidad Final'}" :select="selects.speed"/></div>
+          <div class="mb-3"> <input-group :data="{id: 'a',  number: givens.a,  text: 'Aceleración'}" :select="selects.acceleration"/></div>
         </div>
         <div class="col-12 col-lg-4">
-          <div class="mb-3"> <input-group :data="{id: 'r', text: 'Tiempo'}" :select="{ option: 'time', default: 'seg' }" /></div>
+          <div class="mb-3"> <input-group :data="{id: 'r', number: result, r: true, text: 'Tiempo'}" :select="selects.time" /></div>
         </div>
         <div class="col-12 col-lg-4">
           (vf - vi) / a
@@ -71,7 +71,6 @@
 </template>
 
 <script>
-  import functions from '../helpers/functions'
   import SelectComponent from './includes/select'
   import inputGroup from './includes/input-group'
 export default {
@@ -85,20 +84,25 @@ export default {
         a: '', 
         t: '',
       },
+      selects:{
+        speed: { option: 'speed', default: 'm/s' },
+        distance:{ option: 'distance', default: 'mts' },
+        acceleration: { option: 'acceleration', default: 'm/s2' },
+        time:{ option: 'time', default: 'seg', }
+      },
       result: '',
       type: 'vf',
     }
   },
   methods:{ 
     changeCalcule(type){
-      this.type = type
+      this.resetData(type)
       this.calculate()
     },
     calculate(){
-      let type = this.type
-      switch(type){
+      switch(this.type){
         case 'vf': 
-          this.result = this.givens.vi + (this.givens.a * this.givens.t)
+          if(this.givens.vi && this.givens.a && this.givens.t) this.result = this.givens.vi + (this.givens.a * this.givens.t)
         break
         case 'd':
           this.result = (this.givens.a * (this.givens.t * this.givens.t)) / 2 + (this.givens.vi * this.givens.t)
@@ -113,7 +117,25 @@ export default {
           this.result = null
         break
       }
-    }
+    },
+    resetData(type){
+      this.type = type
+      this.givens = {
+        vf: '',
+        vi: '',
+        d: '',
+        a: '', 
+        t: '',
+      },
+      this.selects = {
+        speed: { option: 'speed', default: 'm/s' },
+        distance:{ option: 'distance', default: 'mts' },
+        acceleration: { option: 'acceleration', default: 'm/s2' },
+        time:{ option: 'time', default: 'seg', }
+      },
+      this.result = ''
+      this.type= 'vf'
+    },
   }
 
 
