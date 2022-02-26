@@ -105,16 +105,16 @@ export default {
           if(this.givens.vi && this.givens.a && this.givens.t) this.result = this.givens.vi + (this.givens.a * this.givens.t)
         break
         case 'd':
-          this.result = (this.givens.a * (this.givens.t * this.givens.t)) / 2 + (this.givens.vi * this.givens.t)
+          if(this.givens.a && this.givens.t && this.givens.vi) this.result = (this.givens.a * (this.givens.t * this.givens.t)) / 2 + (this.givens.vi * this.givens.t)
         break
         case 'a':
-          this.result = (this.givens.vf - this.givens.vi) / this.givens.t
+          if(this.givens.vf && this.givens.t && this.givens.vi) this.result = (this.givens.vf - this.givens.vi) / this.givens.t
         break
         case 't':
-          this.result = (this.givens.vf - this.givens.vi) / this.givens.a
+          if(this.givens.vf && this.givens.a && this.givens.vi) this.result = (this.givens.vf - this.givens.vi) / this.givens.a
         break
         default:
-          this.result = null
+          this.result = ''
         break
       }
     },
@@ -134,7 +134,7 @@ export default {
         time:{ option: 'time', default: 'seg', }
       },
       this.result = ''
-      this.type= 'vf'
+      this.type = type
     },
   }
 

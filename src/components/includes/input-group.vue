@@ -2,7 +2,8 @@
     <label :for="data.id">{{ data.text }}</label>
     <div class="input-group">
         <input type="number" class="form-control" :id="data.id" placeholder="-" v-model="data.number" v-on:change="setNumbersInParent()" v-on:keyup="setNumbersInParent()" :disabled="data.id == 'r'"> 
-        <select-component class="form-select" :data="select" v-on:getConversion="getConversion"/> 
+        <!-- :disabled="data.option =='speed' && !$parent.data.r"  -->
+        <select-component class="form-select" :data="select" v-on:getConversion="getConversion" :disabled="data.number && select.option == 'speed'  && data.r  "/> 
     </div>
 </template>
 

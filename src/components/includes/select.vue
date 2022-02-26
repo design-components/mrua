@@ -1,6 +1,6 @@
 <template>
     <!-- <v-select  :options="['Canada', 'United States']"></v-select> -->
-    <v-select v-model="option" :disabled="data.option =='speed' && $parent.data.r" v-on:close="setConversion" :options="dataSelect" :reduce="option => option.abbreviation" label="abbreviation" :select-on-key-codes="[188, 13]">
+    <v-select v-model="option" v-on:close="setConversion" :options="dataSelect" :reduce="option => option.abbreviation" label="abbreviation" :select-on-key-codes="[188, 13]">
         <template #option="{abbreviation, description}">
             {{ abbreviation }} ({{ description }})
         </template>
