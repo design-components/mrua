@@ -96,8 +96,10 @@ export default {
     },
     calculate(){
       let nT = this.selects.time.default != 'seg' ? functions.conversions('time', this.givens.t, 'seg', this.selects.time.default) : this.givens.t
-      let nVi = this.type == 'd' ? this.selects.speed.default != 'm/s' ? functions.conversions('speed', this.givens.vi, 'm/s', this.selects.speed.default) : this.givens.vi : this.givens.vi
 
+      let nVi = this.type != 'vf' ? this.selects.speed.default != 'm/s' ? functions.conversions('speed', this.givens.vi, 'm/s', this.selects.speed.default) : this.givens.vi : this.givens.vi
+      let nVf = this.type == 'a' || this.type == 't' ? this.selects.speed.default != 'm/s' ? functions.conversions('speed', this.givens.vf, 'm/s', this.selects.speed.default) : this.givens.vf : this.givens.vf
+      
       switch(this.type){
         case 'vf': 
           if(nVi && this.givens.a && nT) this.result = nVi + (this.givens.a * nT)
@@ -106,10 +108,10 @@ export default {
           if(this.givens.a && nT && nVi) this.result = (this.givens.a * (nT * nT)) / 2 + (nVi * nT)
         break
         case 'a':
-          if(this.givens.vf && nT && nVi) this.result = (this.givens.vf - nVi) / nT
+          if(nVf && nT && nVi) this.result = (nVf - nVi) / nT
         break
         case 't':
-          if(this.givens.vf && this.givens.a && nVi) this.result = (this.givens.vf - nVi) / this.givens.a
+          if(nVf && this.givens.a && nVi) this.result = (nVf - nVi) / this.givens.a
         break
         default:
           this.result = ''
