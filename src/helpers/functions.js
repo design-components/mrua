@@ -116,7 +116,7 @@ function conversions(type, number, conversion, oldConversion ){
             console.log('converson distance')
             break
         case 'acceleration':
-            console.log('converson acceleration')
+            // console.log('converson acceleration')
             break
         case 'time':
             return setConversionTime(number, conversion, oldConversion)
