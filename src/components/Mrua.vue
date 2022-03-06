@@ -71,24 +71,19 @@
 </template>
 
 <script>
+  import functions from "./../helpers/functions"
   import SelectComponent from './includes/select'
   import inputGroup from './includes/input-group'
 export default {
   components: {SelectComponent, inputGroup},
   data(){
     return {
-      givens: {
-        vf: '',
-        vi: '',
-        d: '',
-        a: '', 
-        t: '',
-      },
+      givens: { vf: '', vi: '', d: '', a: '', t: '', },
       selects:{
-        speed: { option: 'speed', default: 'm/s' },
-        distance:{ option: 'distance', default: 'mts' },
+        speed:        { option: 'speed',        default: 'm/s' },
+        distance:     { option: 'distance',     default: 'mts' },
         acceleration: { option: 'acceleration', default: 'm/s2' },
-        time:{ option: 'time', default: 'seg', }
+        time:         { option: 'time',         default: 'seg', }
       },
       result: '',
       type: 'vf',
@@ -102,7 +97,19 @@ export default {
     calculate(){
       switch(this.type){
         case 'vf': 
-          if(this.givens.vi && this.givens.a && this.givens.t) this.result = this.givens.vi + (this.givens.a * this.givens.t)
+          if(this.givens.vi && this.givens.a && this.givens.t){
+            console.log('time', this.givens.t, 'seg', this.selects.time.default)
+            
+            if(this.selects.time.default == 'seg'){
+              this.result = this.givens.vi + (this.givens.a * this.givens.t)
+            }else{
+              
+              let number = functions.conversions('time', this.givens.t, 'seg', this.selects.time.default)
+              console.log(number)
+              this.result = this.givens.vi + (this.givens.a * number)
+            }
+
+          } 
         break
         case 'd':
           if(this.givens.a && this.givens.t && this.givens.vi) this.result = (this.givens.a * (this.givens.t * this.givens.t)) / 2 + (this.givens.vi * this.givens.t)
@@ -120,18 +127,12 @@ export default {
     },
     resetData(type){
       this.type = type
-      this.givens = {
-        vf: '',
-        vi: '',
-        d: '',
-        a: '', 
-        t: '',
-      },
+      this.givens = { vf: '', vi: '', d: '', a: '', t: '', },
       this.selects = {
-        speed: { option: 'speed', default: 'm/s' },
-        distance:{ option: 'distance', default: 'mts' },
+        speed:        { option: 'speed',        default: 'm/s' },
+        distance:     { option: 'distance',     default: 'mts' },
         acceleration: { option: 'acceleration', default: 'm/s2' },
-        time:{ option: 'time', default: 'seg', }
+        time:         { option: 'time',         default: 'seg', }
       },
       this.result = ''
       this.type = type

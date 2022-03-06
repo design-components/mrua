@@ -2,7 +2,6 @@
     <label :for="data.id">{{ data.text }}</label>
     <div class="input-group">
         <input type="number" class="form-control" :id="data.id" placeholder="-" v-model="data.number" v-on:change="setNumbersInParent()" v-on:keyup="setNumbersInParent()" :disabled="data.id == 'r'"> 
-        <!-- :disabled="data.option =='speed' && !$parent.data.r"  -->
         <select-component class="form-select" :data="select" v-on:getConversion="getConversion" :disabled="data.number && select.option == 'speed'  && data.r  "/> 
     </div>
 </template>
@@ -34,9 +33,6 @@
                     let number = functions.conversions( this.select.option, this.$parent.givens.vi, this.select.default == 'km/h' ? 'm/s' : 'km/h', this.select.default == 'm/s' ? 'm/s' : 'km/h')
                     this.$parent.givens.vi = number
                 }
-
-
-                this.setNumbersInParent(dataConversion.number)
                 let newSelect = { option: dataConversion.select, default: dataConversion.option }
                 switch(dataConversion.select){
                     case 'time': this.$parent.selects.time = newSelect; break
@@ -44,8 +40,7 @@
                     case 'acceleration': this.$parent.selects.acceleration = newSelect; break
                     case 'speed': this.$parent.selects.speed = newSelect; break
                 }
-
-
+                this.setNumbersInParent(dataConversion.number)
             }
         }
     }

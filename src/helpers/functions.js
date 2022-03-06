@@ -78,18 +78,18 @@ function selectsParameters(type){
                 //     abbreviation: 'm/h^2',
                 //     description: 'Metros x hora al cuadrado'
                 // },
-                {
-                    abbreviation: 'km/h^2',
-                    description: 'kilometros x hora al cuadrado'
-                },
+                // {
+                //     abbreviation: 'km/h^2',
+                //     description: 'kilometros x hora al cuadrado'
+                // },
                 // {
                 //     abbreviation: 'km/s^2',
                 //     description: 'kilometros x segundo al cuadrado'
                 // },
-                {
-                    abbreviation: 'km/h^2',
-                    description: 'kilometros x hora al cuadrado'
-                },
+                // {
+                //     abbreviation: 'km/h^2',
+                //     description: 'kilometros x hora al cuadrado'
+                // },
             ]
 
         case 'speed':
@@ -119,8 +119,7 @@ function conversions(type, number, conversion, oldConversion ){
             console.log('converson acceleration')
             break
         case 'time':
-            console.log('converson time')
-            break
+            return setConversionTime(number, conversion, oldConversion)
     }
 }
 
@@ -134,6 +133,38 @@ function setConversionSpeed(number, conversion, oldConversion){
     switch(oldConversion){
         case 'm/s': if(conversion == 'km/h') return ( number / 5 ) * 18;  break
         case 'km/h': if(conversion == 'm/s') return ( number / 18 ) * 5;  break
+        default:
+            return false
+    }
+}
+function setConversionTime(number, conversion, oldConversion){
+    /* 
+
+    
+        - seg a min => number / 60                      = 30seg / 60 = .5min
+        - min a h   => number / 60                      
+        - h   a 
+    
+        - m/s a km/h =>     ( number / 5 ) * 18         = ( 15m/s  / 5 ) * 18 = 54km/h
+        - km/h a m/s =>     ( number / 18 ) * 5         = ( 54km/h / 18 ) * 5 = 15m/s
+    */
+    // h
+    switch(oldConversion){
+        case 'seg': 
+            if(conversion == 'min') return number / 60
+            if(conversion == 'h') return ( number / 60 ) / 60
+            break
+
+        case 'min': 
+            if(conversion == 'seg') return number * 60
+            if(conversion == 'h') return number / 60
+            break
+
+        case 'h': 
+            if(conversion == 'seg') return ( number * 60 ) * 60
+            if(conversion == 'min') return number * 60
+            break
+
         default:
             return false
     }
